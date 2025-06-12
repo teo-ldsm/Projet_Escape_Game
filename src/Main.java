@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        new Fenetre();
+        Fenetre fenetre = new Fenetre();
+        fenetre.afficheimage("src/resources/Salle sombre.png");
     }
 }

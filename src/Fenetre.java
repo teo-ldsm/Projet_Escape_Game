@@ -1,37 +1,40 @@
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class Fenetre extends JFrame {
 
+    private final JLabel imageLabel; // Composant pour afficher l'image
 
     public Fenetre() {
-
-        JFrame f = new JFrame("Escape game");
-
-        f.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
-        f.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        super("Escape game");
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         JPanel pan = new JPanel(new BorderLayout());
+
+        // Composant image au centre
+        imageLabel = new JLabel();
+        imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        pan.add(imageLabel, BorderLayout.CENTER);
 
         // Ajouter le bandeau en bas
         Bandeau bandeau = new Bandeau();
         pan.add(bandeau, BorderLayout.SOUTH);
 
-        f.setContentPane(pan);
-        f.setVisible(true);
-
-
-
+        setContentPane(pan);
+        setVisible(true);
+        addMouseListener(new Souris(this));
     }
 
-    public void click(int x, int y) {
-        switch (x, y) {
-            case (100, 200):
-                // Action à effectuer pour le clic à la position (100, 200)
-                break;
-        
-            default:
-                break;
-        }
+    public void click(int x, int y) {}
+
+    public void afficheimage(String image) {
+        ImageIcon icon = new ImageIcon(image);
+        imageLabel.setIcon(icon); // Affiche l'image dans la fenêtre principale
     }
+}
