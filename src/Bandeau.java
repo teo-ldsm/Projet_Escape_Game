@@ -1,24 +1,26 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Bandeau extends JPanel {
 
     private final JButton boutonUtiliser;
     private final JLabel textBox;
     private final ButtonListener blistener;
-    private String[] scrollableText;
+
+    public String[] scrollableText;
+    public int scrollableTextIndex = 0;
+    public final JButton btnRight = new JButton(">>");
+    public final JButton btnLeft = new JButton("<<");
 
     public Bandeau() {
-        // Configuration du bandeau principal
+        // Configuration du b principal
         this.setLayout(new BorderLayout());
 
         textBox = new JLabel("Test", SwingConstants.LEFT);
         textBox.setVerticalAlignment(SwingConstants.TOP);
         textBox.setFont(new Font("Arial", Font.BOLD, 15));
         textBox.setForeground(Color.WHITE);
-        textBox.setPreferredSize(new Dimension(0, 180)); // Réglage de la hauteur du bandeau
+        textBox.setPreferredSize(new Dimension(0, 180)); // Réglage de la hauteur du b
         this.setBackground(Color.BLACK);
 
         // Ajout du label au nord
@@ -32,7 +34,7 @@ public class Bandeau extends JPanel {
         JButton boutonRegarder = new JButton("REGARDER");
         boutonUtiliser = new JButton("UTILISER");
 
-        blistener = new ButtonListener();
+        blistener = new ButtonListener(this);
 
         for (JButton b : new JButton[]{boutonPrendre, boutonRegarder, boutonUtiliser}) {
             b.setFont(new Font("Arial", Font.BOLD, 20));
@@ -54,7 +56,7 @@ public class Bandeau extends JPanel {
         boutonPanel.add(boutonUtiliser);
         boutonPanel.setBackground(Color.BLACK);
 
-        // Ajout du sous-panneau au bas du bandeau
+        // Ajout du sous-panneau au bas du b
         this.add(boutonPanel, BorderLayout.SOUTH);
     }
 
@@ -66,9 +68,7 @@ public class Bandeau extends JPanel {
     public void setScrollableText(String[] texts) {
 
         scrollableText = texts;
-
-        JButton btnLeft = new JButton("<<");
-        JButton btnRight = new JButton(">>");
+        setText(texts[0]);
 
         btnRight.addActionListener(blistener);
         btnLeft.addActionListener(blistener);
@@ -83,9 +83,17 @@ public class Bandeau extends JPanel {
             b.setBackground(Color.BLACK);
         }
 
+        this.add(btnRight, BorderLayout.EAST);
+        this.add(btnLeft, BorderLayout.WEST);
+
         btnLeft.setEnabled(false);
 
 
+    }
+
+    public void resetScrollableText() {
+        this.remove(btnRight);
+        this.remove(btnLeft);
     }
 
 }
