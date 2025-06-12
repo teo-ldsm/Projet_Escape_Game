@@ -16,7 +16,7 @@ public class Bandeau extends JPanel {
         // Configuration du b principal
         this.setLayout(new BorderLayout());
 
-        textBox = new JLabel("Test", SwingConstants.LEFT);
+        textBox = new JLabel("", SwingConstants.LEFT);
         textBox.setVerticalAlignment(SwingConstants.TOP);
         textBox.setFont(new Font("Arial", Font.BOLD, 15));
         textBox.setForeground(Color.WHITE);

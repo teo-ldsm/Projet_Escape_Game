@@ -4,6 +4,7 @@ import java.awt.*;
 public class Fenetre extends JFrame {
 
     private final JLabel imageLabel; // Composant pour afficher l'image
+    public final Bandeau bandeau;
 
     public Fenetre() {
         super("Escape game");
@@ -18,7 +19,7 @@ public class Fenetre extends JFrame {
         pan.add(imageLabel, BorderLayout.CENTER);
 
         // Ajouter le bandeau en bas
-        Bandeau bandeau = new Bandeau();
+        bandeau = new Bandeau();
         pan.add(bandeau, BorderLayout.SOUTH);
 
         setContentPane(pan);

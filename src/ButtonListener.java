@@ -14,7 +14,6 @@ public class ButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
         switch (command) {
-
             case "scrollRight":
                 b.setText(b.scrollableText[++b.scrollableTextIndex]);
                 if (b.scrollableTextIndex == b.scrollableText.length - 1) {
@@ -28,6 +27,7 @@ public class ButtonListener implements ActionListener {
                     b.btnLeft.setEnabled(false);
                 }
                 b.btnRight.setEnabled(true);
+                break;
         }
 
     }
