@@ -27,7 +27,7 @@ public class Bandeau extends JPanel {
         this.add(textBox, BorderLayout.NORTH);
 
         // Sous-panneau pour les boutons
-        JPanel boutonPanel = new JPanel(new GridLayout(1, 3, 10, 10)); // 1 ligne, 3 colonnes, 10 px d'espacement
+        JPanel boutonPanel = new JPanel(new GridLayout(1, 3, 10, 10)); // 1 ligne, 3 colonnes, 10 px fenetre'espacement
 
         // Création des boutons
         JButton boutonPrendre = new JButton("PRENDRE");

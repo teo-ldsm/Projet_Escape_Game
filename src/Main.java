@@ -5,5 +5,7 @@ public class Main {
         fenetre.afficheimage("src/resources/Salle sombre.png");
         fenetre.bandeau.setText("Bandeau");
 
+
+
     }
 }
