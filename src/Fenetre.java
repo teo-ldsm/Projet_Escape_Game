@@ -25,4 +25,13 @@ public class Fenetre extends JFrame {
 
     }
 
-}
+    public void click(int x, int y) {
+        switch (x, y) {
+            case (100, 200):
+                // Action à effectuer pour le clic à la position (100, 200)
+                break;
+        
+            default:
+                break;
+        }
+    }
