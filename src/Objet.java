@@ -1,16 +1,21 @@
+import javax.swing.*;
+
 public class Objet {
 
-    public int x;
-    public int y;
-    public int height;
-    public int width;
+    private final int x;
+    private final int y;
+    private final int height;
+    private final int width;
 
     public String nom;
     public String description;
     public boolean utilisable;
+    public boolean prenable;
 
     public Hitboxes hitbox;
     public boolean visible = false;
+
+    public static Fenetre f;
 
 
     public Objet(int x, int y, int height, int width, String nom, String description, boolean utilisable, Hitboxes hitbox) {
@@ -34,6 +39,19 @@ public class Objet {
             return normalizedX + normalizedY <= 1.0;
         } else {
             return mouseX >= x - width/2 && mouseX <= x + width/2 && mouseY >= y - height/2 && mouseY <= y + height/2;
+        }
+    }
+
+    public void regarder() {
+        if (visible) {
+            f.bandeau.setText(description);
+        }
+    }
+
+    public void prendre() {
+        if (visible && prenable) {
+            f.bandeau.setText("Vous avez ramassé " + nom + ". Cela pourra vous servir plus tard");
+            visible = false;
         }
     }
 }

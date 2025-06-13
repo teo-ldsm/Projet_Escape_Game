@@ -4,7 +4,7 @@ import java.awt.*;
 public class Bandeau extends JPanel {
 
     private final JButton boutonUtiliser;
-    private final JLabel textBox;
+    private final JTextArea textBox;
     private final ButtonListener blistener;
 
     public String[] scrollableText;
@@ -16,11 +16,16 @@ public class Bandeau extends JPanel {
         // Configuration du b principal
         this.setLayout(new BorderLayout());
 
-        textBox = new JLabel("", SwingConstants.LEFT);
-        textBox.setVerticalAlignment(SwingConstants.TOP);
+        textBox = new JTextArea("");
+        textBox.setEditable(false);
+        textBox.setFocusable(false);
+        textBox.setLineWrap(true);
+        textBox.setWrapStyleWord(true);
+        textBox.setOpaque(false);
         textBox.setFont(new Font("Arial", Font.BOLD, 15));
         textBox.setForeground(Color.WHITE);
-        textBox.setPreferredSize(new Dimension(0, 180)); // Réglage de la hauteur du b
+        textBox.setPreferredSize(new Dimension(0, 180)); // Réglage de la hauteur du bandeau
+
         this.setBackground(Color.BLACK);
 
         // Ajout du label au nord
@@ -30,8 +35,8 @@ public class Bandeau extends JPanel {
         JPanel boutonPanel = new JPanel(new GridLayout(1, 3, 10, 10)); // 1 ligne, 3 colonnes, 10 px fenetre'espacement
 
         // Création des boutons
-        JButton boutonPrendre = new JButton("PRENDRE");
         JButton boutonRegarder = new JButton("REGARDER");
+        JButton boutonPrendre = new JButton("PRENDRE");
         boutonUtiliser = new JButton("UTILISER");
 
         blistener = new ButtonListener(this);
@@ -44,15 +49,15 @@ public class Bandeau extends JPanel {
             b.addActionListener(blistener);
         }
 
-        boutonPrendre.setActionCommand("prendre");
         boutonRegarder.setActionCommand("regarder");
+        boutonPrendre.setActionCommand("prendre");
         boutonUtiliser.setActionCommand("utiliser");
 
         boutonUtiliser.setEnabled(false);
 
         // Ajout des boutons au sous-panneau
-        boutonPanel.add(boutonPrendre);
         boutonPanel.add(boutonRegarder);
+        boutonPanel.add(boutonPrendre);
         boutonPanel.add(boutonUtiliser);
         boutonPanel.setBackground(Color.BLACK);
 
@@ -65,7 +70,7 @@ public class Bandeau extends JPanel {
 
     public void setText(String text) { textBox.setText(text); }
 
-    public void setScrollableText(String[] texts) {
+    public void setText(String[] texts) {
 
         scrollableText = texts;
         setText(texts[0]);

@@ -28,6 +28,8 @@ public class Fenetre extends JFrame {
         setContentPane(pan);
         setVisible(true);
         addMouseListener(new Souris(this, true));
+
+        Objet.f = this;
     }
 
     public void click(int x, int y) {
