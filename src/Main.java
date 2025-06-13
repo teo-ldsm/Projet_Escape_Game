@@ -15,7 +15,6 @@ public class Main {
         bureauSombre.afficher();
         
         while (fenetre.currentScene == bureauSombre) {
-            System.out.println(interrupteur.used);
             if (interrupteur.used==true){
                 fenetre.scenes.add(salleFlippante);
                 salleFlippante.afficher();
