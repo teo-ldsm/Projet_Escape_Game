@@ -38,7 +38,11 @@ public class Scene {
                 o.focused = true;
                 f.bandeau.setText(o.description);
                 if (o.utilisable) {
-                    f.bandeau.activerBoutonUtiliser();
+                    if (o.utilisableAvec != null) {
+                        f.bandeau.activerBoutonUtiliser(o.utilisableAvec.nom);
+                    } else {
+                        f.bandeau.activerBoutonUtiliser("");
+                    }
                 } else {
                     f.bandeau.desactiverBoutonUtiliser();
                 }

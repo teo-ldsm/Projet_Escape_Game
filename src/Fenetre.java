@@ -12,8 +12,8 @@ public class Fenetre extends JFrame {
 
     public Fenetre() {
         super("Escape game");
-//        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setSize(1360, 768);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        setSize(1360, 768);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         JPanel pan = new JPanel(new BorderLayout());
