@@ -24,7 +24,16 @@ public class Objet {
         this.hitbox = hitbox;
     }
 
-//    public boolean isClicked(int mouseX, int mouseY) {
-//
-//    }
+    public boolean isClicked(int mouseX, int mouseY) {
+
+        if (!visible) return false;
+
+        if (hitbox == Hitboxes.ROND) {
+            double normalizedX = Math.pow(mouseX - x, 2) / Math.pow(width, 2);
+            double normalizedY = Math.pow(mouseY - y, 2) / Math.pow(height, 2);
+            return normalizedX + normalizedY <= 1.0;
+        } else {
+            return mouseX >= x - width/2 && mouseX <= x + width/2 && mouseY >= y - height/2 && mouseY <= y + height/2;
+        }
+    }
 }

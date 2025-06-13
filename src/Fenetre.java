@@ -1,10 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Fenetre extends JFrame {
 
     private final JLabel imageLabel; // Composant pour afficher l'image
     public final Bandeau bandeau;
+
+    public ArrayList<Objet> objets = new ArrayList<Objet>();
 
     public Fenetre() {
         super("Escape game");
@@ -24,13 +27,49 @@ public class Fenetre extends JFrame {
 
         setContentPane(pan);
         setVisible(true);
-        addMouseListener(new Souris(this));
+        addMouseListener(new Souris(this, true));
     }
 
-    public void click(int x, int y) {}
+    public void click(int x, int y) {
+        for (Objet o : objets) {
+            if (o.isClicked(x, y)) {
+                bandeau.setText(o.description);
+                if (o.utilisable) {
+                    bandeau.activerBoutonUtiliser();
+                } else {
+                    bandeau.desactiverBoutonUtiliser();
+                }
+            }
+        }
+    }
+
+    public void ajouterObjet(Objet o) {
+        objets.add(o);
+    }
 
     public void afficheimage(String image) {
         ImageIcon icon = new ImageIcon(image);
-        imageLabel.setIcon(icon); // Affiche l'image dans la fenêtre principale
+
+        // Récupérer les dimensions disponibles pour afficher l'image
+        int largeurDisponible = getContentPane().getWidth();
+        int hauteurDisponible = getContentPane().getHeight() - bandeau.getHeight();
+
+        // Redimensionner l'image si nécessaire
+        Image img = icon.getImage();
+        int largeurImage = icon.getIconWidth();
+        int hauteurImage = icon.getIconHeight();
+
+        // Échelle pour ajuster l'image à l'espace disponible
+        double ratioLargeur = (double) largeurDisponible / largeurImage;
+        double ratioHauteur = (double) hauteurDisponible / hauteurImage;
+        double ratio = Math.min(ratioLargeur, ratioHauteur);
+
+        // Redimensionner l'image en maintenant les proportions
+        int nouvelleLargeur = (int) (largeurImage * ratio);
+        int nouvelleHauteur = (int) (hauteurImage * ratio);
+        Image imgRedimensionnee = img.getScaledInstance(nouvelleLargeur, nouvelleHauteur, Image.SCALE_SMOOTH);
+
+        // Mettre l'image redimensionnée dans le JLabel
+        imageLabel.setIcon(new ImageIcon(imgRedimensionnee));
     }
 }
