@@ -2,8 +2,8 @@ public class Objet {
 
     private final int x;
     private final int y;
-    private final int height;
     private final int width;
+    private final int height;
 
     public String nom;
     public String description;
@@ -22,7 +22,7 @@ public class Objet {
     public static Fenetre f;
 
 
-    public Objet(int x, int y, int height, int width, String nom, String description, boolean utilisable, Hitboxes hitbox) {
+    public Objet(int x, int y, int width, int height, String nom, String description, boolean utilisable, Hitboxes hitbox) {
         this.x = x;
         this.y = y;
         this.height = height;

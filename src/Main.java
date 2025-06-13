@@ -10,7 +10,7 @@ public class Main {
 
         fenetre.scenes.add(bureauSombre);
         
-        Objet interrupteur = new Objet(100, 100, 50, 50, "Interrupteur", "Un interrupteur qui pourrait allumer la lumière.", true, Hitboxes.CARRE);
+        Objet interrupteur = new Objet(212, 250, 90, 220, "Interrupteur", "Un interrupteur qui pourrait allumer la lumière.", true, Hitboxes.CARRE);
         bureauSombre.objets.add(interrupteur);
         bureauSombre.afficher();
         

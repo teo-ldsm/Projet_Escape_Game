@@ -34,6 +34,7 @@ public class Scene {
     }
 
     public void click(int x, int y) {
+        f.bandeau.desactiverBoutonUtiliser();
         for (Objet o : objets) {
             if (o.isClicked(x, y)) {
                 o.focused = true;

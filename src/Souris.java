@@ -19,8 +19,8 @@ class Souris extends MouseAdapter {
         int x = m.getX();
         int y = m.getY();
 
-        int xImage = (fenetre.getWidth() - fenetre.imageLabel.getIcon().getIconWidth())/2;
-        int yImage = (fenetre.getHeight() - fenetre.imageLabel.getIcon().getIconHeight())/2;
+        int xImage = (fenetre.imageLabel.getWidth() - fenetre.imageLabel.getIcon().getIconWidth())/2;
+        int yImage = (fenetre.imageLabel.getHeight() - fenetre.imageLabel.getIcon().getIconHeight())/2;
 
         x -= xImage;
         y -= yImage;
