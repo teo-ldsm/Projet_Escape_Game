@@ -21,12 +21,35 @@ public class ButtonListener implements ActionListener {
                 }
                 b.btnLeft.setEnabled(true);
                 break;
+
             case "scrollLeft":
                 b.setText(b.scrollableText[--b.scrollableTextIndex]);
                 if (b.scrollableTextIndex == 0) {
                     b.btnLeft.setEnabled(false);
                 }
                 b.btnRight.setEnabled(true);
+                break;
+
+            case "utiliser":
+                for (Objet o : Scene.f.currentScene.objets) {
+                    if (o.focused) {
+                        o.utiliser();
+                    }
+                }
+                break;
+            case "prendre":
+                for (Objet o : Scene.f.currentScene.objets) {
+                    if (o.focused) {
+                        o.prendre();
+                    }
+                }
+                break;
+            case "regarder":
+                for (Objet o : Scene.f.currentScene.objets) {
+                    if (o.focused) {
+                        o.regarder();
+                    }
+                }
                 break;
         }
 
