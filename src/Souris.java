@@ -19,6 +19,6 @@ class Souris extends MouseAdapter {
         int x = m.getX();
         int y = m.getY();
         if (debug) fenetre.bandeau.setText("Clic aux coordonées (" + x + "; " + y + ")");
-        fenetre.click(x, y);
+        fenetre.currentScene.click(x, y);
     }
 }

@@ -7,11 +7,13 @@ public class Fenetre extends JFrame {
     private final JLabel imageLabel; // Composant pour afficher l'image
     public final Bandeau bandeau;
 
-    public ArrayList<Objet> objets = new ArrayList<Objet>();
+    public ArrayList<Scene> scenes;
+    public Scene currentScene;
 
     public Fenetre() {
         super("Escape game");
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setSize(1360, 768);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         JPanel pan = new JPanel(new BorderLayout());
@@ -30,26 +32,9 @@ public class Fenetre extends JFrame {
         addMouseListener(new Souris(this, true));
 
         Objet.f = this;
-    }
+        Scene.f = this;
 
-    public void click(int x, int y) {
-        for (Objet o : objets) {
-            if (o.isClicked(x, y)) {
-                o.focused = true;
-                bandeau.setText(o.description);
-                if (o.utilisable) {
-                    bandeau.activerBoutonUtiliser();
-                } else {
-                    bandeau.desactiverBoutonUtiliser();
-                }
-            } else {
-                o.focused = false;
-            }
-        }
-    }
-
-    public void ajouterObjet(Objet o) {
-        objets.add(o);
+        scenes = new ArrayList<>();
     }
 
     public void afficheimage(String image) {

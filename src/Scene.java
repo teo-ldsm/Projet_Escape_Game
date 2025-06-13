@@ -4,9 +4,48 @@ public class Scene {
 
     public ArrayList<Objet> objets;
     public String image;
+    public String description;
 
-    public Scene(ArrayList<Objet> objets, String image) {
-        this.objets = objets;
+    public static Fenetre f;
+
+    public Scene(String image, String description) {
+        this.objets = new ArrayList<Objet>();
         this.image = image;
+        this.description = description;
     }
+
+    public void afficher() {
+        f.currentScene = this;
+        for (Scene s : f.scenes) {
+            s.masquer();
+        }
+        f.afficheimage(image);
+        f.bandeau.setText(description);
+        for (Objet o : objets) {
+            o.visible = true;
+        }
+    }
+
+    public void masquer() {
+        for (Objet o : objets) {
+            o.visible = false;
+        }
+    }
+
+    public void click(int x, int y) {
+        for (Objet o : objets) {
+            if (o.isClicked(x, y)) {
+                o.focused = true;
+                f.bandeau.setText(o.description);
+                if (o.utilisable) {
+                    f.bandeau.activerBoutonUtiliser();
+                } else {
+                    f.bandeau.desactiverBoutonUtiliser();
+                }
+            } else {
+                o.focused = false;
+            }
+        }
+    }
+
 }
