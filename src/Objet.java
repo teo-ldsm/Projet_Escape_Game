@@ -1,4 +1,3 @@
-import javax.swing.*;
 
 public class Objet {
 
@@ -51,6 +50,12 @@ public class Objet {
     public void prendre() {
         if (visible && prenable) {
             f.bandeau.setText("Vous avez ramassé " + nom + ". Cela pourra vous servir plus tard");
+            visible = false;
+        }
+    }
+    public void utiliser() {
+        if (visible && utilisable) {
+            f.bandeau.setText("Vous avez utilisé " + nom + ".");
             visible = false;
         }
     }
