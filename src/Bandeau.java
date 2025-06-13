@@ -1,5 +1,5 @@
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 public class Bandeau extends JPanel {
 
@@ -65,7 +65,10 @@ public class Bandeau extends JPanel {
         this.add(boutonPanel, BorderLayout.SOUTH);
     }
 
-    public void activerBoutonUtiliser() { boutonUtiliser.setEnabled(true); }
+    public void activerBoutonUtiliser(String nomObjet) { 
+        boutonUtiliser.setEnabled(true);
+        boutonUtiliser.setText("UTILISER " + nomObjet);
+    }
     public void desactiverBoutonUtiliser() { boutonUtiliser.setEnabled(false); }
 
     public void setText(String text) { textBox.setText(text); }

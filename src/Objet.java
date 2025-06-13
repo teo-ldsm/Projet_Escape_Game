@@ -16,6 +16,7 @@ public class Objet {
     public boolean visible = false;
     public boolean collected = false;
     public boolean focused = false;
+    public boolean used = false;
 
 
     public static Fenetre f;
@@ -60,9 +61,16 @@ public class Objet {
 
     public void utiliser() {
         if (utilisable && visible) {
-            // TODO
-            if (utilisableAvec != null && utilisableAvec.collected) {
-                // TODO
+            if (utilisableAvec != null) {
+                if (utilisableAvec.collected) {
+                    f.bandeau.setText("Vous avez utilisé " + nom + " avec " + utilisableAvec.nom + ".");
+                    used = true;
+                } else {
+                    f.bandeau.setText("Vous ne pouvez pas utiliser " + nom + " car vous n'avez pas l'objet requis.");
+                }
+            } else {
+                f.bandeau.setText("Vous avez utilisé " + nom + ".");
+                used = true;
             }
         }
     }

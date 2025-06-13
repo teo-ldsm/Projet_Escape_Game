@@ -38,7 +38,7 @@ public class Fenetre extends JFrame {
                 o.focused = true;
                 bandeau.setText(o.description);
                 if (o.utilisable) {
-                    bandeau.activerBoutonUtiliser();
+                    bandeau.activerBoutonUtiliser(o.utilisableAvec.nom);
                 } else {
                     bandeau.desactiverBoutonUtiliser();
                 }
