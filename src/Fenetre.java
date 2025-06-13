@@ -35,12 +35,15 @@ public class Fenetre extends JFrame {
     public void click(int x, int y) {
         for (Objet o : objets) {
             if (o.isClicked(x, y)) {
+                o.focused = true;
                 bandeau.setText(o.description);
                 if (o.utilisable) {
                     bandeau.activerBoutonUtiliser();
                 } else {
                     bandeau.desactiverBoutonUtiliser();
                 }
+            } else {
+                o.focused = false;
             }
         }
     }

@@ -1,5 +1,3 @@
-import javax.swing.*;
-
 public class Objet {
 
     private final int x;
@@ -10,10 +8,15 @@ public class Objet {
     public String nom;
     public String description;
     public boolean utilisable;
+    public Objet utilisableAvec;
+
     public boolean prenable;
 
     public Hitboxes hitbox;
     public boolean visible = false;
+    public boolean collected = false;
+    public boolean focused = false;
+
 
     public static Fenetre f;
 
@@ -52,6 +55,15 @@ public class Objet {
         if (visible && prenable) {
             f.bandeau.setText("Vous avez ramassé " + nom + ". Cela pourra vous servir plus tard");
             visible = false;
+        }
+    }
+
+    public void utiliser() {
+        if (utilisable && visible) {
+            // TODO
+            if (utilisableAvec != null && utilisableAvec.collected) {
+                // TODO
+            }
         }
     }
 }
