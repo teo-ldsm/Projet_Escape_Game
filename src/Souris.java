@@ -18,6 +18,13 @@ class Souris extends MouseAdapter {
     public void mouseClicked(MouseEvent m) {
         int x = m.getX();
         int y = m.getY();
+
+        int xImage = (fenetre.getWidth() - fenetre.imageLabel.getIcon().getIconWidth())/2;
+        int yImage = (fenetre.getHeight() - fenetre.imageLabel.getIcon().getIconHeight())/2;
+
+        x -= xImage;
+        y -= yImage;
+        
         if (debug) fenetre.bandeau.setText("Clic aux coordonées (" + x + "; " + y + ")");
         fenetre.currentScene.click(x, y);
     }

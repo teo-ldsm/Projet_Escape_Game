@@ -16,6 +16,7 @@ public class Scene {
 
     public void afficher() {
         f.currentScene = this;
+        f.scenes.add(this);
         for (Scene s : f.scenes) {
             s.masquer();
         }

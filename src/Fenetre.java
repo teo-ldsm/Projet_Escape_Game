@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Fenetre extends JFrame {
 
-    private final JLabel imageLabel; // Composant pour afficher l'image
+    public final JLabel imageLabel; // Composant pour afficher l'image
     public final Bandeau bandeau;
 
     public ArrayList<Scene> scenes;
