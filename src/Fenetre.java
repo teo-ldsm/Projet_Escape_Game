@@ -10,7 +10,7 @@ public class Fenetre extends JFrame {
     public ArrayList<Scene> scenes;
     public Scene currentScene;
 
-    public Fenetre() {
+    public Fenetre() throws InterruptedException {
         super("Escape game");
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 //        setSize(1360, 768);
@@ -18,19 +18,28 @@ public class Fenetre extends JFrame {
 
         JPanel pan = new JPanel(new BorderLayout());
 
-        // Composant image au centre
-        imageLabel = new JLabel();
-        imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        pan.add(imageLabel, BorderLayout.CENTER);
 
         // Ajouter le bandeau en bas
         bandeau = new Bandeau();
         pan.add(bandeau, BorderLayout.SOUTH);
 
+        CalibrateurSouris cs = new CalibrateurSouris();
+        pan.add(cs, BorderLayout.CENTER);
+
         setContentPane(pan);
         setVisible(true);
         addMouseListener(new Souris(this, true));
 
+        cs.startCalibration();
+        while (!cs.calibrationTerminee) {}
+        System.out.println("oui");
+
+        pan.remove(cs);
+
+        // Composant image au centre
+        imageLabel = new JLabel();
+        imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        pan.add(imageLabel, BorderLayout.CENTER);
         Objet.f = this;
         Scene.f = this;
 
