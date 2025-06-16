@@ -1,6 +1,11 @@
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class Fenetre extends JFrame {
 
@@ -10,12 +15,11 @@ public class Fenetre extends JFrame {
     public ArrayList<Scene> scenes;
     public Scene currentScene;
 
-    public Fenetre() throws InterruptedException {
+    public Fenetre() {
         super("Escape game");
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 //        setSize(1360, 768);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
         JPanel pan = new JPanel(new BorderLayout());
 
 
