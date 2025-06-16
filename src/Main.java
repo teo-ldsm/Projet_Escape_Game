@@ -16,7 +16,7 @@ public class Main {
             Objet boite2 = new Objet(700, 100, 50, 50, "Boîte", "C'est une boîte qui pourrait contenir des objets utiles.", false, Hitboxes.CARRE, false, false);
             Objet boite3 = new Objet(800, 100, 50, 50, "Boîte", "C'est une boîte qui pourrait contenir des objets utiles.", false, Hitboxes.CARRE, false, false);
             Objet mallette = new Objet(900, 100, 50, 50, "Mallette", "C'est une mallette qui pourrait contenir des objets utiles.", false, Hitboxes.CARRE, false, true);
-            Objet tiroir = new Objet(1000, 100, 50, 50, "Tiroir", "C'est un tiroir qui pourrait contenir des objets utiles.", true, Hitboxes.CARRE, false, false);
+            Objet tiroir = new Objet(300, 700, 100, 50, "Tiroir", "C'est un tiroir qui pourrait contenir des objets utiles.", true, Hitboxes.CARRE, false, false);
             Objet bocaletrange = new Objet(1100, 100, 50, 50, "Bocal étrange", "C'est un bocal contenant une chose étrange.", false, Hitboxes.CARRE, false, false);
             salleFlippante.objets.add(lampe);
             salleFlippante.objets.add(porte);
@@ -54,7 +54,7 @@ public class Main {
         Scene dossier_medical = new Scene("src/resources/dossier medical.png", "C'est un dossier médical qui contient les informations d'un mort. ");
 
         Scene carnettiroir = new Scene("src/resources/carnettiroir.png", "C'est un tiroir contenant un carnet. ");
-            Objet carnet = new Objet(200, 200, 50, 50, "Carnet", "C'est un carnet qui pourrait contenir des informations.", false, Hitboxes.CARRE, false, true);
+            Objet carnet = new Objet(200, 200, 100, 100, "Carnet", "C'est un carnet qui pourrait contenir des informations.", false, Hitboxes.CARRE, false, true);
             carnettiroir.objets.add(carnet);
 
         Scene boitephoto = new Scene("src/resources/boitephoto.png", "C'est une boîte contenant une photo et des outils. ");
@@ -76,43 +76,42 @@ public class Main {
                 }
             fenetre.repaint();
         }
-
-        // chercher dans la salle flippante
-        while (fenetre.currentScene == salleFlippante) {
-            if (tiroir.regardé){
-                carnettiroir.afficher();
-            }
-            if (boite1.regardé){
-                boitephoto.afficher();
-            }
-            if (Sac.regardé){
-                sactelephone.afficher();
-            }
-            if (mallette.regardé){
-               Mallette.afficher();
-            }
-            if (journal.regardé){
-                Journal.afficher();
-            }
-            if (ordinateur.used){
-                if (cleUSB.collected){
-                    dossier_medical.afficher();
-                } else {
-                    fenetre.bandeau.setText("L'ordinateur est verrouillé.");
+        while (true)
+            // chercher dans la salle flippante
+            while (fenetre.currentScene == salleFlippante) {
+                if (tiroir.used){
+                    carnettiroir.afficher();
                 }
+                if (boite1.regardé){
+                    boitephoto.afficher();
+                }
+                if (Sac.regardé){
+                    sactelephone.afficher();
+                }
+                if (mallette.regardé){
+                Mallette.afficher();
+                }
+                if (journal.regardé){
+                    Journal.afficher();
+                }
+                if (ordinateur.used){
+                    if (cleUSB.collected){
+                        dossier_medical.afficher();
+                    } else {
+                        fenetre.bandeau.setText("L'ordinateur est verrouillé.");
+                    }
+                }
+
+
+            // lire le carnet
+            while (fenetre.currentScene == carnettiroir) {
+                if (carnet.regardé) {
+                    photocarnet.afficher();
+                    fenetre.bandeau.setText(new String[]{"17 mars.\n Elle est partie. Elle a dit que c'était fini. Fini. Comme si on pouvait juste effacer des années. Comme si mon amour était une chose qu'on jette. Elle croit quoi, qu'elle va trouver mieux ? Personne ne l'aimera comme moi. Personne.","21 mars.\n Je la vois partout. Son rire résonne dans mes murs vides. Ses parfums sont encore là, dans l'air, me narguant. Je sais ce qu'elle fait. Elle vit sa vie. La sienne. Sans moi. L'idée qu'elle soit avec quelqu'un d'autre... ça me brûle de l'intérieur. Une flamme noire qui ne s'éteint pas.","28 mars.\n J'ai trouvé la solution. Simple. Propre. Si elle ne peut pas être à moi, elle ne sera à personne. Leurs vies sans moi, leurs rires, leurs mensonges. Ça n'arrivera pas. Pas question.","3 avril.\n C'est une question de temps. Une petite modification. Un détail insignifiant pour le commun des mortels. Mais pour elle... ce sera la fin. Un accident. Personne ne se doutera de rien. J'ai pensé à tout. Les moindres détails. Mon cœur ne bat plus la chamade, il est froid. Comme de la pierre. Une pierre qui pèse lourd.","5 avril.\n C'est fait. J'ai vu l'annonce aux infos. Un accident. Elle n'a pas survécu. Le sourire sur son visage, le dernier que j'ai vu, m'a hanté un instant. Puis le vide. C'est tout ce qui reste. Juste le vide. C'est mieux comme ça. Vraiment mieux.","12 mai.\n Je traîne. Les jours, les nuits se ressemblent. Un brouillard épais. Puis je l'ai vue. Dans la rue. J'ai cru que mon cœur allait lâcher. La même démarche. Les mêmes cheveux. Et ce visage... c'est elle. Elle est là. Elle est revenue.","12 mai. (plus tard dans la nuit)\n Non. Ce n'est pas elle. Pas tout à fait. Mais c'est si proche. Incroyablement proche. Je l'ai suivie un moment. Mon sang pulsait dans mes veines. Une idée. Une folie. Mon cerveau en a une nouvelle. Une nouvelle obsession.","13 mai.\n La camionnette. Blanche. Parfaite pour ça. Je l'ai garée au bon endroit. Elle était là, à ce même coin de rue. Un instant. Juste un instant de panique dans ses yeux. Puis l'obscurité. Elle est à moi maintenant. Dans la camionnette. Mon nouveau fardeau. Mon nouveau jouet. Et personne ne le saura. Personne. Elle me rappellera Claire. Et je pourrai recommencer. Ou finir. Je ne sais pas encore.","13 mai. (après l'avoir récupérée)\n Elle est là, en bas, dans le noir. Elle ne sait pas. Elle ne comprend pas. Elle est juste... là. Une ombre. Une toile blanche pour mes pinceaux. Je la regarde, et je vois Claire. Ce n'est pas elle, je sais. Mais c'est une image assez nette pour me tromper, un instant. Elle est attachée. Pour sa sécurité, bien sûr. C'est pour son bien. Elle me remerciera un jour.","Je suis le seul maître ici. Le seul à connaître les chemins de cette maison, de ma vie. Mais si jamais quelqu'un se retrouvait dans ma cave, il faudrait bien qu'il comprenne. Qu'il comprenne mes obsessions. Pour s'en sortir, il n'y a qu'une seule voie.","Pour sortir de ma cave, souviens-toi de mes obsessions :\n Le jour où tout a changé, la date du premier vide, avant le grand vide.\n Le nombre de fois où elle a appelé, avant que je ne décroche plus.\n L’heure gravée dans ma mémoire, l'instant précis où j'ai su qu'elle ne reviendrait jamais.\n Le poids que sur ma conscience, le fait que personne d'autre ne l'aura.\n Ces chiffres, mis dans le bon ordre, ouvriront la porte. Le savent-ils ? Se souviendront-ils ?"});
+                }
+
             }
             fenetre.repaint();
         }
-
-        // lire le carnet
-        while (fenetre.currentScene == carnettiroir) {
-            if (carnet.regardé){
-                photocarnet.afficher();
-            }
-            fenetre.repaint();
-        }
-
-
-
     }
 }

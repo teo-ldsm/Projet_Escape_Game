@@ -1,5 +1,11 @@
-import java.awt.*;
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 public class Bandeau extends JPanel {
 
@@ -103,6 +109,7 @@ public class Bandeau extends JPanel {
             b.setFocusPainted(false);
             b.setForeground(Color.WHITE);
             b.setBackground(Color.BLACK);
+            b.setVisible(true);
         }
 
         this.add(btnRight, BorderLayout.EAST);
