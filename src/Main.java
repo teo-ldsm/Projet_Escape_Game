@@ -3,21 +3,21 @@ public class Main {
         Fenetre fenetre = new Fenetre();
 
         Scene bureauSombre = new Scene("src/resources/Salle sombre.png", "Un homme dans la rue vous " +"a proposé de monter dans sa camionnette blanche pour vous donner des bonbons. Il vous a kidnappé et " +"drogué, vous vous trouvez dans une cave sombre. Vous devez trouver un moyen d'allumer la lumière " +"pour vous échapper.");
-            Objet interrupteur = new Objet(212, 250, 90, 220, "Interrupteur", "Un interrupteur qui pourrait allumer la lumière.", true, Hitboxes.CARRE);
+            Objet interrupteur = new Objet(243, 214, 150, 300, "Interrupteur", "Un interrupteur qui pourrait allumer la lumière.", true, Hitboxes.CARRE, false, false);
             bureauSombre.objets.add(interrupteur);
 
         Scene salleFlippante = new Scene("src/resources/Salle flippante.png", "Vous êtes dans une salle flippante, " + "vous devez trouver un moyen de sortir.");
-            Objet lampe = new Objet(100, 100, 50, 50, "Lampe", "C'est une lampe.", true, Hitboxes.CARRE);
-            Objet porte = new Objet(200, 100, 50, 50, "Porte", "C'est une porte qui mène à une autre salle.", true, Hitboxes.CARRE);
-            Objet ordinateur = new Objet(300, 100, 50, 50, "Ordinateur", "C'est un ordinateur qui pourrait contenir des informations.", true, Hitboxes.CARRE);
-            Objet Sac = new Objet(400, 100, 50, 50, "Sac", "C'est un sac qui pourrait contenir des objets utiles.", true, Hitboxes.CARRE);
-            Objet journal = new Objet(500, 100, 50, 50, "Journal", "C'est un journal qui pourrait contenir des informations.", true, Hitboxes.CARRE);
-            Objet boite1 = new Objet(600, 100, 50, 50, "Boîte", "C'est une boîte qui pourrait contenir des objets utiles.", true, Hitboxes.CARRE);
-            Objet boite2 = new Objet(700, 100, 50, 50, "Boîte", "C'est une boîte qui pourrait contenir des objets utiles.", true, Hitboxes.CARRE);
-            Objet boite3 = new Objet(800, 100, 50, 50, "Boîte", "C'est une boîte qui pourrait contenir des objets utiles.", true, Hitboxes.CARRE);
-            Objet mallette = new Objet(900, 100, 50, 50, "Mallette", "C'est une mallette qui pourrait contenir des objets utiles.", true, Hitboxes.CARRE);
-            Objet tiroir = new Objet(1000, 100, 50, 50, "Tiroir", "C'est un tiroir qui pourrait contenir des objets utiles.", true, Hitboxes.CARRE);
-            Objet bocaletrange = new Objet(1100, 100, 50, 50, "Bocal étrange", "C'est un bocal contenant une chose étrange.", true, Hitboxes.CARRE);
+            Objet lampe = new Objet(100, 100, 50, 50, "Lampe", "C'est une lampe.", false, Hitboxes.CARRE, false, false);
+            Objet porte = new Objet(200, 100, 50, 50, "Porte", "C'est une porte qui mène à une autre salle.", true, Hitboxes.CARRE, false, true);
+            Objet ordinateur = new Objet(300, 100, 50, 50, "Ordinateur", "C'est un ordinateur qui pourrait contenir des informations.", true, Hitboxes.CARRE, false, false);
+            Objet Sac = new Objet(400, 100, 50, 50, "Sac", "C'est un sac qui pourrait contenir des objets utiles.", false, Hitboxes.CARRE, false, true);
+            Objet journal = new Objet(500, 100, 50, 50, "Journal", "C'est un journal qui pourrait contenir des informations.", false, Hitboxes.CARRE, false, true);
+            Objet boite1 = new Objet(600, 100, 50, 50, "Boîte", "C'est une boîte qui pourrait contenir des objets utiles.", false, Hitboxes.CARRE, false, true);
+            Objet boite2 = new Objet(700, 100, 50, 50, "Boîte", "C'est une boîte qui pourrait contenir des objets utiles.", false, Hitboxes.CARRE, false, false);
+            Objet boite3 = new Objet(800, 100, 50, 50, "Boîte", "C'est une boîte qui pourrait contenir des objets utiles.", false, Hitboxes.CARRE, false, false);
+            Objet mallette = new Objet(900, 100, 50, 50, "Mallette", "C'est une mallette qui pourrait contenir des objets utiles.", false, Hitboxes.CARRE, false, true);
+            Objet tiroir = new Objet(1000, 100, 50, 50, "Tiroir", "C'est un tiroir qui pourrait contenir des objets utiles.", true, Hitboxes.CARRE, false, false);
+            Objet bocaletrange = new Objet(1100, 100, 50, 50, "Bocal étrange", "C'est un bocal contenant une chose étrange.", false, Hitboxes.CARRE, false, false);
             salleFlippante.objets.add(lampe);
             salleFlippante.objets.add(porte);
             salleFlippante.objets.add(ordinateur);
@@ -31,10 +31,10 @@ public class Main {
             salleFlippante.objets.add(bocaletrange);
 
         Scene sactelephone = new Scene("src/resources/sac téléphone.png", "C'est un sac contenant un téléphone, des médicaments, un tournevis et des serviettes. ");
-            Objet telephone = new Objet(100, 100, 50, 50, "Téléphone", "C'est un téléphone", true, Hitboxes.CARRE);
-            Objet medicaments = new Objet(200, 100, 50, 50, "Médicaments", "C'est des médicaments", true, Hitboxes.CARRE);
-            Objet tournevis = new Objet(300, 100, 50, 50, "Tournevis", "C'est un tournevis", true, Hitboxes.CARRE);
-            Objet serviettes = new Objet(400, 100, 50, 50, "Serviettes", "C'est des serviettes", true, Hitboxes.CARRE);
+            Objet telephone = new Objet(100, 100, 50, 50, "Téléphone", "C'est un téléphone", false, Hitboxes.CARRE, false, true);
+            Objet medicaments = new Objet(200, 100, 50, 50, "Médicaments", "C'est des médicaments", false, Hitboxes.CARRE, false, false);
+            Objet tournevis = new Objet(300, 100, 50, 50, "Tournevis", "C'est un tournevis", false, Hitboxes.CARRE, false, false);
+            Objet serviettes = new Objet(400, 100, 50, 50, "Serviettes", "C'est des serviettes", false, Hitboxes.CARRE, false, false);
             sactelephone.objets.add(telephone);
             sactelephone.objets.add(medicaments);
             sactelephone.objets.add(tournevis);
@@ -44,8 +44,8 @@ public class Main {
         Scene photocarnet = new Scene("src/resources/photocarnet.png", "C'est un carnet contenant des notes. ");
 
         Scene Mallette = new Scene("src/resources/mallette clé USB.png", "C'est une mallette contenant des papiers et une clé USB. ");
-            Objet cleUSB = new Objet(100, 100, 50, 50, "Clé USB", "C'est une clé USB qui pourrait contenir des informations.", true, Hitboxes.CARRE);
-            Objet papiers = new Objet(200, 100, 50, 50, "Papiers", "C'est des papiers qui pourraient contenir des informations.", true, Hitboxes.CARRE);
+            Objet cleUSB = new Objet(100, 100, 50, 50, "Clé USB", "C'est une clé USB qui pourrait contenir des informations.", false, Hitboxes.CARRE, true, false);
+            Objet papiers = new Objet(200, 100, 50, 50, "Papiers", "C'est des papiers qui pourraient contenir des informations.", false, Hitboxes.CARRE, false, false);
             Mallette.objets.add(cleUSB);
             Mallette.objets.add(papiers);
 
@@ -54,12 +54,12 @@ public class Main {
         Scene dossier_medical = new Scene("src/resources/dossier medical.png", "C'est un dossier médical qui contient les informations d'un mort. ");
 
         Scene carnettiroir = new Scene("src/resources/carnettiroir.png", "C'est un tiroir contenant un carnet. ");
-            Objet carnet = new Objet(200, 200, 50, 50, "Carnet", "C'est un carnet qui pourrait contenir des informations.", true, Hitboxes.CARRE);
+            Objet carnet = new Objet(200, 200, 50, 50, "Carnet", "C'est un carnet qui pourrait contenir des informations.", false, Hitboxes.CARRE, false, true);
             carnettiroir.objets.add(carnet);
 
         Scene boitephoto = new Scene("src/resources/boitephoto.png", "C'est une boîte contenant une photo et des outils. ");
-            Objet photo = new Objet(100, 100, 50, 50, "Photo", "C'est une photo qui pourrait contenir des informations.", true, Hitboxes.CARRE);
-            Objet outils = new Objet(200, 100, 50, 50, "Outils", "C'est des outils qui pourraient être utiles.", true, Hitboxes.CARRE);
+            Objet photo = new Objet(100, 100, 50, 50, "Photo", "C'est une photo qui pourrait contenir des informations.", false, Hitboxes.CARRE, false, true);
+            Objet outils = new Objet(200, 100, 50, 50, "Outils", "C'est des outils qui pourraient être utiles.", false, Hitboxes.CARRE, false, false);
             boitephoto.objets.add(photo);
             boitephoto.objets.add(outils);
 

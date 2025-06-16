@@ -18,12 +18,13 @@ public class Objet {
     public boolean focused = false;
     public boolean used = false;
     public boolean regardé = false;
+    public boolean regardable = false;
 
 
     public static Fenetre f;
 
 
-    public Objet(int x, int y, int width, int height, String nom, String description, boolean utilisable, Hitboxes hitbox) {
+    public Objet(int x, int y, int width, int height, String nom, String description, boolean utilisable, Hitboxes hitbox, boolean prenable, boolean regardable) {
         this.x = x;
         this.y = y;
         this.height = height;
@@ -32,6 +33,8 @@ public class Objet {
         this.description = description;
         this.utilisable = utilisable;
         this.hitbox = hitbox;
+        this.prenable = prenable;
+        this.regardable = regardable;
     }
 
     public boolean isClicked(int mouseX, int mouseY) {
