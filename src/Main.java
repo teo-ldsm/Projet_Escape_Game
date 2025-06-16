@@ -61,7 +61,7 @@ public class Main {
             fenetre.scenes.add(dossier_medical);
 
         Scene carnettiroir = new Scene("src/resources/carnettiroir.png", "C'est un tiroir contenant un carnet. ");
-            Objet carnet = new Objet(100, 100, 50, 50, "Carnet", "C'est un carnet qui pourrait contenir des informations.", true, Hitboxes.CARRE);
+            Objet carnet = new Objet(200, 200, 50, 50, "Carnet", "C'est un carnet qui pourrait contenir des informations.", true, Hitboxes.CARRE);
             carnettiroir.objets.add(carnet);
             fenetre.scenes.add(carnettiroir);
 
@@ -76,7 +76,7 @@ public class Main {
 
        
         
-        
+        // allumer la lumière
         bureauSombre.afficher();
         while (fenetre.currentScene == bureauSombre) {
             if (interrupteur.used==true){
@@ -84,7 +84,43 @@ public class Main {
                 }
             fenetre.repaint();
         }
-        // allumer la lumière
+        
+        // chercher dans la salle flippante
+        while (fenetre.currentScene == salleFlippante) {
+            if (tiroir.regardé==true){
+                carnettiroir.afficher();
+            }
+            if (boite1.regardé==true){
+                boitephoto.afficher();
+            }
+            if (Sac.regardé==true){
+                sactelephone.afficher();
+            }
+            if (mallette.regardé==true){
+               Mallette.afficher();
+            }
+            if (journal.regardé==true){
+                Journal.afficher();
+            }
+            if (ordinateur.used==true){
+                if (cleUSB.collected==true){
+                    dossier_medical.afficher();
+                } else {
+                    fenetre.bandeau.setText("L'ordinateur est verrouillé.");
+                }
+            }
+            fenetre.repaint();
+        }
+
+        // lire le carnet
+        while (fenetre.currentScene == carnettiroir) {
+            if (carnet.regardé==true){
+                photocarnet.afficher();
+            }
+            fenetre.repaint();
+        }
+
+
 
     }
 }

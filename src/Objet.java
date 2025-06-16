@@ -17,6 +17,7 @@ public class Objet {
     public boolean collected = false;
     public boolean focused = false;
     public boolean used = false;
+    public boolean regardé = false;
 
 
     public static Fenetre f;
@@ -49,6 +50,7 @@ public class Objet {
     public void regarder() {
         if (visible) {
             f.bandeau.setText(description);
+            regardé = true;
         }
     }
 
