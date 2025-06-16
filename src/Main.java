@@ -139,6 +139,11 @@ public class Main {
             while (fenetre.currentScene == dossier_medical) {
                 fenetre.bandeau.setText("Le dossier médical contient les informations d'un mort, dont  le poids est de 62kg et la taille de 1m70.");
             }
+
+            //sortir de la cave
+            while (fenetre.currentScene == digicode) {
+                fenetre.bandeau.setText("Pour sortir de la cave, il faut entrer le code :");
+            }
             fenetre.repaint();
         }
     }
