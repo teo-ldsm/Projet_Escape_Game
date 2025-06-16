@@ -24,6 +24,9 @@ class Souris extends MouseAdapter {
 
         x -= xImage;
         y -= yImage;
+
+        x = x * 1000 / fenetre.imageLabel.getIcon().getIconWidth();
+        y = y * 1000 / fenetre.imageLabel.getIcon().getIconHeight();
         
         if (debug) fenetre.bandeau.setText("Clic aux coordonées (" + x + "; " + y + ")");
         fenetre.currentScene.click(x, y);
