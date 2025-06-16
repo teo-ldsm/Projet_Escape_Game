@@ -35,18 +35,22 @@ public class Scene {
 
     public void click(int x, int y) {
         f.bandeau.desactiverBoutonUtiliser();
+        f.bandeau.desactiverBoutonPrendre();
+        f.bandeau.desactiverBoutonUtiliser();
         for (Objet o : objets) {
             if (o.isClicked(x, y)) {
                 o.focused = true;
                 f.bandeau.setText(o.description);
+                f.bandeau.activerBoutonRegarder();
                 if (o.utilisable) {
                     if (o.utilisableAvec != null) {
                         f.bandeau.activerBoutonUtiliser(o.utilisableAvec.nom);
                     } else {
-                        f.bandeau.activerBoutonUtiliser("");
+                        f.bandeau.activerBoutonUtiliser();
                     }
-                } else {
-                    f.bandeau.desactiverBoutonUtiliser();
+                }
+                if (o.prenable){
+                    f.bandeau.activerBoutonPrendre();
                 }
             } else {
                 o.focused = false;

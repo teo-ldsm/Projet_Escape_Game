@@ -5,7 +5,6 @@ public class Main {
         Scene bureauSombre = new Scene("src/resources/Salle sombre.png", "Un homme dans la rue vous " +"a proposé de monter dans sa camionnette blanche pour vous donner des bonbons. Il vous a kidnappé et " +"drogué, vous vous trouvez dans une cave sombre. Vous devez trouver un moyen d'allumer la lumière " +"pour vous échapper.");
             Objet interrupteur = new Objet(212, 250, 90, 220, "Interrupteur", "Un interrupteur qui pourrait allumer la lumière.", true, Hitboxes.CARRE);
             bureauSombre.objets.add(interrupteur);
-            fenetre.scenes.add(bureauSombre);
 
         Scene salleFlippante = new Scene("src/resources/Salle flippante.png", "Vous êtes dans une salle flippante, " + "vous devez trouver un moyen de sortir.");
             Objet lampe = new Objet(100, 100, 50, 50, "Lampe", "C'est une lampe.", true, Hitboxes.CARRE);
@@ -30,7 +29,6 @@ public class Main {
             salleFlippante.objets.add(mallette);
             salleFlippante.objets.add(tiroir);
             salleFlippante.objets.add(bocaletrange);
-            fenetre.scenes.add(salleFlippante);
 
         Scene sactelephone = new Scene("src/resources/sac téléphone.png", "C'est un sac contenant un téléphone, des médicaments, un tournevis et des serviettes. ");
             Objet telephone = new Objet(100, 100, 50, 50, "Téléphone", "C'est un téléphone", true, Hitboxes.CARRE);
@@ -41,69 +39,63 @@ public class Main {
             sactelephone.objets.add(medicaments);
             sactelephone.objets.add(tournevis);
             sactelephone.objets.add(serviettes);
-            fenetre.scenes.add(sactelephone);
 
 
         Scene photocarnet = new Scene("src/resources/photocarnet.png", "C'est un carnet contenant des notes. ");
-            fenetre.scenes.add(photocarnet);
 
         Scene Mallette = new Scene("src/resources/mallette clé USB.png", "C'est une mallette contenant des papiers et une clé USB. ");
             Objet cleUSB = new Objet(100, 100, 50, 50, "Clé USB", "C'est une clé USB qui pourrait contenir des informations.", true, Hitboxes.CARRE);
             Objet papiers = new Objet(200, 100, 50, 50, "Papiers", "C'est des papiers qui pourraient contenir des informations.", true, Hitboxes.CARRE);
             Mallette.objets.add(cleUSB);
             Mallette.objets.add(papiers);
-            fenetre.scenes.add(Mallette);
 
         Scene Journal = new Scene("src/resources/journal accident.png", "C'est un article de journal qui parle d'un accident de voiture. ");
-            fenetre.scenes.add(Journal);
 
         Scene dossier_medical = new Scene("src/resources/dossier medical.png", "C'est un dossier médical qui contient les informations d'un mort. ");
-            fenetre.scenes.add(dossier_medical);
 
         Scene carnettiroir = new Scene("src/resources/carnettiroir.png", "C'est un tiroir contenant un carnet. ");
             Objet carnet = new Objet(200, 200, 50, 50, "Carnet", "C'est un carnet qui pourrait contenir des informations.", true, Hitboxes.CARRE);
             carnettiroir.objets.add(carnet);
-            fenetre.scenes.add(carnettiroir);
 
         Scene boitephoto = new Scene("src/resources/boitephoto.png", "C'est une boîte contenant une photo et des outils. ");
             Objet photo = new Objet(100, 100, 50, 50, "Photo", "C'est une photo qui pourrait contenir des informations.", true, Hitboxes.CARRE);
             Objet outils = new Objet(200, 100, 50, 50, "Outils", "C'est des outils qui pourraient être utiles.", true, Hitboxes.CARRE);
             boitephoto.objets.add(photo);
             boitephoto.objets.add(outils);
-            fenetre.scenes.add(boitephoto);
 
 
 
-       
-        
+
+
         // allumer la lumière
         bureauSombre.afficher();
         while (fenetre.currentScene == bureauSombre) {
-            if (interrupteur.used==true){
+
+            if (interrupteur.used){
                 salleFlippante.afficher();
                 }
             fenetre.repaint();
         }
-        
+
         // chercher dans la salle flippante
         while (fenetre.currentScene == salleFlippante) {
-            if (tiroir.regardé==true){
+            if (tiroir.regardé){
                 carnettiroir.afficher();
             }
-            if (boite1.regardé==true){
+            if (boite1.regardé){
                 boitephoto.afficher();
             }
-            if (Sac.regardé==true){
+            if (Sac.regardé){
                 sactelephone.afficher();
             }
-            if (mallette.regardé==true){
+            if (mallette.regardé){
                Mallette.afficher();
             }
-            if (journal.regardé==true){
+            if (journal.regardé){
                 Journal.afficher();
             }
-            if (ordinateur.used==true){
-                if (cleUSB.collected==true){
+            if (ordinateur.used){
+                if (cleUSB.collected){
                     dossier_medical.afficher();
                 } else {
                     fenetre.bandeau.setText("L'ordinateur est verrouillé.");
@@ -114,7 +106,7 @@ public class Main {
 
         // lire le carnet
         while (fenetre.currentScene == carnettiroir) {
-            if (carnet.regardé==true){
+            if (carnet.regardé){
                 photocarnet.afficher();
             }
             fenetre.repaint();

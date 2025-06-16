@@ -4,6 +4,9 @@ import javax.swing.*;
 public class Bandeau extends JPanel {
 
     private final JButton boutonUtiliser;
+    private final JButton boutonRegarder;
+    private final JButton boutonPrendre;
+
     private final JTextArea textBox;
     private final ButtonListener blistener;
 
@@ -35,8 +38,8 @@ public class Bandeau extends JPanel {
         JPanel boutonPanel = new JPanel(new GridLayout(1, 3, 10, 10)); // 1 ligne, 3 colonnes, 10 px fenetre'espacement
 
         // Création des boutons
-        JButton boutonRegarder = new JButton("REGARDER");
-        JButton boutonPrendre = new JButton("PRENDRE");
+        boutonRegarder = new JButton("REGARDER");
+        boutonPrendre = new JButton("PRENDRE");
         boutonUtiliser = new JButton("UTILISER");
 
         blistener = new ButtonListener(this);
@@ -47,13 +50,14 @@ public class Bandeau extends JPanel {
             b.setForeground(Color.BLACK);
             b.setBackground(Color.WHITE);
             b.addActionListener(blistener);
+            b.setEnabled(false);
         }
 
         boutonRegarder.setActionCommand("regarder");
         boutonPrendre.setActionCommand("prendre");
         boutonUtiliser.setActionCommand("utiliser");
 
-        boutonUtiliser.setEnabled(false);
+//        boutonUtiliser.setEnabled(false);
 
         // Ajout des boutons au sous-panneau
         boutonPanel.add(boutonRegarder);
@@ -67,9 +71,19 @@ public class Bandeau extends JPanel {
 
     public void activerBoutonUtiliser(String nomObjet) { 
         boutonUtiliser.setEnabled(true);
-        boutonUtiliser.setText("UTILISER " + nomObjet);
+        boutonUtiliser.setText("UTILISER AVEC " + nomObjet);
     }
-    public void desactiverBoutonUtiliser() { boutonUtiliser.setEnabled(false); }
+    public void activerBoutonUtiliser() { boutonUtiliser.setEnabled(true); }
+    public void desactiverBoutonUtiliser() {
+        boutonUtiliser.setEnabled(false);
+        boutonUtiliser.setText("UTILISER");
+    }
+
+    public void activerBoutonRegarder() { boutonRegarder.setEnabled(true); }
+    public void desactiverBoutonRegarder() { boutonRegarder.setEnabled(false); }
+
+    public void activerBoutonPrendre() { boutonPrendre.setEnabled(true); }
+    public void desactiverBoutonPrendre() { boutonPrendre.setEnabled(false); }
 
     public void setText(String text) { textBox.setText(text); }
 
