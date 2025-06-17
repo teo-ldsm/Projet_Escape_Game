@@ -5,10 +5,14 @@ public class Scene {
     public ArrayList<Objet> objets;
     public String image;
     public String description;
+    public final String nom;
+
+    public boolean accueil = false;
 
     public static Fenetre f;
 
-    public Scene(String image, String description) {
+    public Scene(String nom, String image, String description) {
+        this.nom = nom;
         this.objets = new ArrayList<Objet>();
         this.image = image;
         this.description = description;
@@ -25,6 +29,7 @@ public class Scene {
         for (Objet o : objets) {
             o.visible = true;
         }
+        f.boutonRetour.setVisible(!accueil);
     }
 
     public void masquer() {

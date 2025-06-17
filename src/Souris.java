@@ -19,19 +19,30 @@ class Souris extends MouseAdapter {
     }
 
     public void mouseClicked(MouseEvent m) {
-        int x = m.getX();
-        int y = m.getY();
+        int xClic = m.getX();
+        int yClic = m.getY();
 
-//        int xImage = (fenetre.imageLabel.getWidth() - fenetre.imageLabel.getIcon().getIconWidth())/2;
-//        int yImage = (fenetre.imageLabel.getHeight() - fenetre.imageLabel.getIcon().getIconHeight())/2;
+        // Position et taille de l'image affichée
+        int largeurImageAffichee = fenetre.imageLabel.getIcon().getIconWidth();
+        int hauteurImageAffichee = fenetre.imageLabel.getIcon().getIconHeight();
 
-        x -= pointHautGauche.x;
-        y -= pointHautGauche.y;
+        int xImage = (fenetre.imageLabel.getWidth() - largeurImageAffichee) / 2 + 7;    // Remplacer le 0 pour faire correspondre les coordonées du 0, 0
+        int yImage = (fenetre.imageLabel.getHeight() - hauteurImageAffichee) / 2 + 30;   //
 
-        x = x * 1000 / (pointBasDroit.x-pointHautGauche.x);
-        y = y * 1000 / (pointBasDroit.y-pointHautGauche.y);
-        
-        if (debug) fenetre.bandeau.setText("Clic aux coordonées (" + x + "; " + y + ")");
-        fenetre.currentScene.click(x, y);
+        // Vérifier si le clic est dans les limites de l'image
+        if (xClic >= xImage && xClic <= xImage + largeurImageAffichee &&
+            yClic >= yImage && yClic <= yImage + hauteurImageAffichee) {
+
+            // Convertir les coordonnées du clic en coordonnées normalisées
+            int xNormalise = (xClic - xImage) * 1000 / largeurImageAffichee;
+            int yNormalise = (yClic - yImage) * 1000 / hauteurImageAffichee;
+
+            if (debug) {
+                fenetre.bandeau.setText("Clic aux coordonnées normalisées (" + xNormalise + "; " + yNormalise + ")");
+            }
+
+            // Notification du clic à la scène courante
+            fenetre.currentScene.click(xNormalise, yNormalise);
+        }
     }
 }
