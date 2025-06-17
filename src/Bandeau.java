@@ -91,7 +91,9 @@ public class Bandeau extends JPanel {
     public void activerBoutonPrendre() { boutonPrendre.setEnabled(true); }
     public void desactiverBoutonPrendre() { boutonPrendre.setEnabled(false); }
 
-    public void setText(String text) { textBox.setText(text); }
+    public void setText(String text) {
+        textBox.setText(text);
+    }
 
     public void setText(String[] texts) {
 

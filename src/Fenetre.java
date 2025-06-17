@@ -1,7 +1,14 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.desktop.AboutEvent;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class Fenetre extends JFrame {
 
@@ -60,8 +67,8 @@ public class Fenetre extends JFrame {
         boutonRetour.setForeground(Color.WHITE);
         boutonRetour.setBackground(Color.BLACK);
         boutonRetour.setVisible(false);
-        boutonRetour.addActionListener(blistener);
         boutonRetour.setActionCommand("retour");
+        boutonRetour.addActionListener(blistener);
 
         JPanel overlay = new JPanel(null);
         overlay.setOpaque(false);
@@ -100,7 +107,7 @@ public class Fenetre extends JFrame {
         imageLabel.setIcon(new ImageIcon(imgRedimensionnee));
     }
 
-    public void afficheScene(String nom) throws Error{
+    public void afficheScene(String nom) throws Error{  // sers à rien
         for (Scene s : scenes) {
             if (s.nom.equals(nom)) {
                 s.afficher();
@@ -110,7 +117,7 @@ public class Fenetre extends JFrame {
         throw new Error("Scene inconnue");
     }
 
-    public void afficheAccueil() throws Error{
+    public void afficheAccueil() throws Error{  // Ne marche pas tout le temps
         for (Scene s : scenes) {
             if (s.accueil) {
                 s.afficher();
