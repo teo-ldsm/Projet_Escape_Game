@@ -9,20 +9,22 @@ import javax.swing.JTextArea;
 
 public class Bandeau extends JPanel {
 
+    private final Fenetre f;
+    
     private final JButton boutonUtiliser;
     private final JButton boutonRegarder;
     private final JButton boutonPrendre;
 
     private final JTextArea textBox;
-    private final ButtonListener blistener;
 
     public String[] scrollableText;
     public int scrollableTextIndex = 0;
     public final JButton btnRight = new JButton(">>");
     public final JButton btnLeft = new JButton("<<");
 
-    public Bandeau() {
-        // Configuration du b principal
+    public Bandeau(Fenetre f) {
+        this.f = f;
+
         this.setLayout(new BorderLayout());
 
         textBox = new JTextArea("");
@@ -41,21 +43,19 @@ public class Bandeau extends JPanel {
         this.add(textBox, BorderLayout.NORTH);
 
         // Sous-panneau pour les boutons
-        JPanel boutonPanel = new JPanel(new GridLayout(1, 3, 10, 10)); // 1 ligne, 3 colonnes, 10 px fenetre'espacement
+        JPanel boutonPanel = new JPanel(new GridLayout(1, 3, 10, 10)); // 1 ligne, 3 colonnes, 10 px d'espacement
 
         // Création des boutons
         boutonRegarder = new JButton("REGARDER");
         boutonPrendre = new JButton("PRENDRE");
         boutonUtiliser = new JButton("UTILISER");
 
-        blistener = new ButtonListener(this);
-
         for (JButton b : new JButton[]{boutonPrendre, boutonRegarder, boutonUtiliser}) {
             b.setFont(new Font("Arial", Font.BOLD, 20));
             b.setFocusPainted(false);
             b.setForeground(Color.BLACK);
             b.setBackground(Color.WHITE);
-            b.addActionListener(blistener);
+            b.addActionListener(f.blistener);
             b.setEnabled(false);
         }
 
@@ -75,7 +75,7 @@ public class Bandeau extends JPanel {
         this.add(boutonPanel, BorderLayout.SOUTH);
     }
 
-    public void activerBoutonUtiliser(String nomObjet) { 
+    public void activerBoutonUtiliser(String nomObjet) {
         boutonUtiliser.setEnabled(true);
         boutonUtiliser.setText("UTILISER AVEC " + nomObjet);
     }
@@ -98,8 +98,8 @@ public class Bandeau extends JPanel {
         scrollableText = texts;
         setText(texts[0]);
 
-        btnRight.addActionListener(blistener);
-        btnLeft.addActionListener(blistener);
+        btnRight.addActionListener(f.blistener);
+        btnLeft.addActionListener(f.blistener);
 
         btnRight.setActionCommand("scrollRight");
         btnLeft.setActionCommand("scrollLeft");

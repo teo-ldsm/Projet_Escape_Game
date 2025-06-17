@@ -3,11 +3,13 @@ import java.awt.event.ActionListener;
 
 public class ButtonListener implements ActionListener {
 
-    Bandeau b;
+    private final Fenetre f;
+    private final Bandeau b;
 
-    public ButtonListener(Bandeau b) {
+    public ButtonListener(Fenetre f) {
         super();
-        this.b = b;
+        this.f = f;
+        this.b = f.bandeau;
     }
 
     @Override
@@ -51,6 +53,8 @@ public class ButtonListener implements ActionListener {
                     }
                 }
                 break;
+            case "retour":
+                f.afficheAccueil();
         }
 
     }
