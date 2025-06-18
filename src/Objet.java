@@ -64,6 +64,7 @@ public class Objet {
     public void prendre() {
         if (visible && prenable) {
             f.bandeau.setText("Vous avez ramassé " + nom + ". Cela pourra vous servir plus tard");
+            collected = true;
             visible = false;
         }
     }

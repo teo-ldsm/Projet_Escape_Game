@@ -59,6 +59,18 @@ public class Main {
             boitePhoto.objets.addAll(List.of(photo));
 
         Scene digicode = new Scene("Digicode", "src/resources/digicode.png", "Pour sortir de la cave, il faut entrer le code :");
+            Objet un = new Objet(438, 272, 42, 42, "1", "Le chiffre 1", true, Hitboxes.CARRE, false, false);
+            Objet deux = new Objet(535, 272, 42, 42, "2", "Le chiffre 2", true, Hitboxes.CARRE, false, false);
+            Objet trois = new Objet(638, 272, 42, 42, "3", "Le chiffre 3", true, Hitboxes.CARRE, false, false);
+            Objet quatre = new Objet(435, 378, 42, 42, "4", "Le chiffre 4", true, Hitboxes.CARRE, false, false);
+            Objet cinq = new Objet(536, 378, 42, 42, "5", "Le chiffre 5", true, Hitboxes.CARRE, false, false);
+            Objet six = new Objet(638, 378, 42, 42, "6", "Le chiffre 6", true, Hitboxes.CARRE, false, false);
+            Objet sept = new Objet(436, 482, 42, 42, "7", "Le chiffre 7", true, Hitboxes.CARRE, false, false);
+            Objet huit = new Objet(537, 482, 42, 42, "8", "Le chiffre 8", true, Hitboxes.CARRE, false, false);
+            Objet neuf = new Objet(638, 482, 42, 42, "9", "Le chiffre 9", true, Hitboxes.CARRE, false, false);
+            Objet zero = new Objet(538, 592, 42, 42, "0", "Le chiffre 0", true, Hitboxes.CARRE, false, false);
+            Objet valider = new Objet(548, 715, 138, 50, "Valider", "Valider le code", true, Hitboxes.CARRE, false, false);
+            digicode.objets.addAll(List.of(un, deux, trois, quatre, cinq, six, sept, huit, neuf, zero, valider));
 
 
 
