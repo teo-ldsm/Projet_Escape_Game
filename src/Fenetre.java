@@ -20,7 +20,7 @@ public class Fenetre extends JFrame {
     public final ButtonListener blistener;
 
     public ArrayList<Scene> scenes;
-    public Scene currentScene;
+    public volatile Scene currentScene;
 
     public Fenetre() {
         super("Escape game");
@@ -35,6 +35,8 @@ public class Fenetre extends JFrame {
         // Ajouter le bandeau en bas
         bandeau = new Bandeau(this);
         pan.add(bandeau, BorderLayout.SOUTH);
+
+        blistener.b = bandeau;
 
 //        // Initialise CountDownLatch pour attendre la calibration
 //        CountDownLatch calibrationLatch = new CountDownLatch(1);

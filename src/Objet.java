@@ -14,11 +14,13 @@ public class Objet {
 
     public Hitboxes hitbox;
     public boolean visible = false;
-    public boolean collected = false;
     public boolean focused = false;
-    public boolean used = false;
 
-    public boolean regardé = false;
+    public volatile boolean collected = false;
+
+    public volatile boolean used = false;
+
+    public volatile boolean regardé = false;
     public boolean regardable = false;
     public String texteRegarder = "Il n'y a rien a voir ici";
 
@@ -54,7 +56,7 @@ public class Objet {
 
     public void regarder() {
         if (visible) {
-            f.bandeau.setText(description);
+            f.bandeau.setText(texteRegarder);
             regardé = true;
         }
     }

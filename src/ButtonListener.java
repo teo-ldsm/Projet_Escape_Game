@@ -4,12 +4,11 @@ import java.awt.event.ActionListener;
 public class ButtonListener implements ActionListener {
 
     private final Fenetre f;
-    private final Bandeau b;
+    public Bandeau b;
 
     public ButtonListener(Fenetre f) {
         super();
         this.f = f;
-        this.b = f.bandeau;
     }
 
     @Override
