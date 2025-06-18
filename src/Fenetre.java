@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.util.ArrayList;
+import java.util.concurrent.CountDownLatch;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,6 +19,7 @@ public class Fenetre extends JFrame {
     public final JButton boutonRetour;
 
     public final ButtonListener blistener;
+    public final Souris souris;
 
     public ArrayList<Scene> scenes;
     public volatile Scene currentScene;
@@ -38,7 +40,7 @@ public class Fenetre extends JFrame {
 
         blistener.b = bandeau;
 
-//        // Initialise CountDownLatch pour attendre la calibration
+        // Initialise CountDownLatch pour attendre la calibration
 //        CountDownLatch calibrationLatch = new CountDownLatch(1);
 //
 //        CalibrateurSouris cs = new CalibrateurSouris(this, calibrationLatch);
@@ -46,21 +48,23 @@ public class Fenetre extends JFrame {
 
         setContentPane(pan);
         setVisible(true);
-        addMouseListener(new Souris(this, true));
 
         imageLabel = new JLabel();
         imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
+        souris = new Souris(this, true, false);
+        imageLabel.addMouseListener(souris);
+
+//        cs.startCalibration();
 //        try {
 //            // Attente que la calibration soit terminée
 //            calibrationLatch.await();
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
-
-//        System.out.println("Calibration terminée dans Fenetre");
-
+//
 //        pan.remove(cs);
+
         pan.add(imageLabel, BorderLayout.CENTER);
 
         boutonRetour = new JButton("<-");

@@ -81,6 +81,17 @@ public class Main {
         bureauSombre.afficher();
         fenetre.boutonRetour.setVisible(false);
 
+//        // Calibration souris
+//        int xCenter = fenetre.getContentPane().getWidth() / 2;
+//        int yCenter = (fenetre.getContentPane().getHeight() - fenetre.bandeau.getHeight()) / 2;
+//
+//        System.out.println("Centre :" + xCenter + " " + yCenter);
+//
+//        int[] normalise = fenetre.souris.normaliserCoordonees(xCenter, yCenter);
+//        System.out.println("Normalisation : " + normalise[0] + " " + normalise[1]);
+//        Souris.offsetX = normalise[0] - 500;
+//        Souris.offsetY = normalise[1] - 500;
+
         while (true) {
 
             while (fenetre.currentScene == bureauSombre) {
