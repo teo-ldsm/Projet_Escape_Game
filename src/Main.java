@@ -3,6 +3,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Fenetre fenetre = new Fenetre();
+        String codeEntre = "";
 
         Scene bureauSombre = new Scene("Bureau Sombre", "src/resources/Salle sombre.png", "Un homme dans la rue vous a proposé de monter dans sa camionnette blanche pour vous donner des bonbons. Il vous a kidnappé et drogué, vous vous trouvez dans une cave sombre. Vous devez trouver un moyen d'allumer la lumière pour vous échapper.");
             Objet interrupteur = new Objet(215, 380, 150, 300, "Interrupteur", "Un interrupteur qui pourrait allumer la lumière.", true, Hitboxes.CARRE, false, false);
@@ -140,6 +141,60 @@ public class Main {
                 }
                 carnet.regardé = false;
             }
+            while (fenetre.currentScene == digicode){
+                // Ajout des chiffres au code entré quand on clique sur un bouton chiffre
+                if (un.used) {
+                    codeEntre += "1";
+                    un.used = false;
+                }
+                if (deux.used) {
+                    codeEntre += "2";
+                    deux.used = false;
+                }
+                if (trois.used) {
+                    codeEntre += "3";
+                    trois.used = false;
+                }
+                if (quatre.used) {
+                    codeEntre += "4";
+                    quatre.used = false;
+                }
+                if (cinq.used) {
+                    codeEntre += "5";
+                    cinq.used = false;
+                }
+                if (six.used) {
+                    codeEntre += "6";
+                    six.used = false;
+                }
+                if (sept.used) {
+                    codeEntre += "7";
+                    sept.used = false;
+                }
+                if (huit.used) {
+                    codeEntre += "8";
+                    huit.used = false;
+                }
+                if (neuf.used) {
+                    codeEntre += "9";
+                    neuf.used = false;
+                }
+                if (zero.used) {
+                    codeEntre += "0";
+                    zero.used = false;
+                }
+
+                if (valider.used) {
+                    if ("29462".equals(codeEntre)) {
+                        fenetre.bandeau.setText("Le digicode s'ouvre, vous êtes libre !");
+                    } else {
+                        fenetre.bandeau.setText("Code incorrect.");
+                    }
+                    codeEntre = ""; // reset après validation
+                    valider.used = false;
+                }
+            }
+
             fenetre.repaint();
         }
     }
