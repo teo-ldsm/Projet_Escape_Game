@@ -1,4 +1,4 @@
-import java.awt.*;
+import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -26,8 +26,8 @@ class Souris extends MouseAdapter {
         int largeurImageAffichee = fenetre.imageLabel.getIcon().getIconWidth();
         int hauteurImageAffichee = fenetre.imageLabel.getIcon().getIconHeight();
 
-        int xImage = (fenetre.imageLabel.getWidth() - largeurImageAffichee) / 2 + 7;        // Remplacer pour faire correspondre les coordonées du 0, 0
-        int yImage = (fenetre.imageLabel.getHeight() - hauteurImageAffichee) / 2 + 30;      // aux coin suppérieur gauche de l'image
+        int xImage = (fenetre.imageLabel.getWidth() - largeurImageAffichee) / 2 + 38;        // Remplacer pour faire correspondre les coordonées du 0, 0 (souvent 7)
+        int yImage = (fenetre.imageLabel.getHeight() - hauteurImageAffichee) / 2 + 65;      // aux coin suppérieur gauche de l'image (souvent 30)
 
         // Vérifier si le clic est dans les limites de l'image
         if (xClic >= xImage && xClic <= xImage + largeurImageAffichee &&
