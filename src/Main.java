@@ -80,14 +80,18 @@ public class Main {
         // allumer la lumière
         bureauSombre.afficher();
         fenetre.boutonRetour.setVisible(false);
-        while (fenetre.currentScene == bureauSombre) {
+        
+        while (true) {
+
+            while (fenetre.currentScene == bureauSombre) {
 
             if (interrupteur.used) {
                 salleFlippante.afficher();
+                interrupteur.used = false;
             }
             fenetre.repaint();
-        }
-        while (true) {
+            }
+
             // chercher dans la salle flippante
             while (fenetre.currentScene == salleFlippante) {
                 if (tiroir.used) {
@@ -187,6 +191,18 @@ public class Main {
                 if (valider.used) {
                     if ("29462".equals(codeEntre)) {
                         fenetre.bandeau.setText("Le digicode s'ouvre, vous êtes libre !");
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException e) {
+                            Thread.currentThread().interrupt();
+                        }
+                        fenetre.bandeau.setText("Le kidnappeur est devant vous, il vous renferme et éteint la lumière.");
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException e) {
+                            Thread.currentThread().interrupt();
+                        }
+                        bureauSombre.afficher(); // Retour à la scène sombre
                     } else {
                         fenetre.bandeau.setText("Code incorrect.");
                     }
