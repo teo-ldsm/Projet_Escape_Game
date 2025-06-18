@@ -92,13 +92,21 @@ public class Bandeau extends JPanel {
     public void desactiverBoutonPrendre() { boutonPrendre.setEnabled(false); }
 
     public void setText(String text) {
+        resetScrollableText();
+        textBox.setText(text);
+    }
+
+    public void setText(String text, boolean reset) {
+        if (reset) {
+            resetScrollableText();
+        }
         textBox.setText(text);
     }
 
     public void setText(String[] texts) {
 
         scrollableText = texts;
-        setText(texts[0]);
+        textBox.setText(texts[0]);
 
         btnRight.addActionListener(f.blistener);
         btnLeft.addActionListener(f.blistener);
@@ -112,6 +120,7 @@ public class Bandeau extends JPanel {
             b.setForeground(Color.WHITE);
             b.setBackground(Color.BLACK);
             b.setVisible(true);
+            b.setEnabled(true);
         }
 
         this.add(btnRight, BorderLayout.EAST);
@@ -125,6 +134,12 @@ public class Bandeau extends JPanel {
     public void resetScrollableText() {
         this.remove(btnRight);
         this.remove(btnLeft);
+        scrollableTextIndex = 0;
+        textBox.setText("");
+        btnLeft.setEnabled(false);
+        btnRight.setEnabled(false);
+        btnRight.setVisible(false);
+        btnLeft.setVisible(false);
     }
 
 }

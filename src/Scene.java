@@ -35,6 +35,10 @@ public class Scene {
     public void masquer() {
         for (Objet o : objets) {
             o.visible = false;
+            o.focused = false;
+            f.bandeau.desactiverBoutonPrendre();
+            f.bandeau.desactiverBoutonUtiliser();
+            f.bandeau.desactiverBoutonRegarder();
         }
     }
 
