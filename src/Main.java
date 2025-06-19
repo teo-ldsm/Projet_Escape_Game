@@ -56,7 +56,7 @@ public class Main {
 
         Scene boitePhoto = new Scene("Boite Photo", "src/resources/boitephoto.png", "C'est une boîte contenant une photo et des outils. ");
             Objet photo = new Objet(650, 340, 330, 300, "Photo", "C'est une photo qui pourrait contenir des informations.", false, Hitboxes.CARRE, false, true);
-
+            photo.texteRegarder = "C'est une photo de la femme que l'homme a aimée. Elle a été prises 02/07/1999";
             boitePhoto.objets.addAll(List.of(photo));
 
         Scene digicode = new Scene("Digicode", "src/resources/digicode.png", "Pour sortir de la cave, il faut entrer le code :");
