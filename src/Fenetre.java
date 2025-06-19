@@ -3,7 +3,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.util.ArrayList;
-import java.util.concurrent.CountDownLatch;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -40,30 +39,14 @@ public class Fenetre extends JFrame {
 
         blistener.b = bandeau;
 
-        // Initialise CountDownLatch pour attendre la calibration
-//        CountDownLatch calibrationLatch = new CountDownLatch(1);
-//
-//        CalibrateurSouris cs = new CalibrateurSouris(this, calibrationLatch);
-//        pan.add(cs, BorderLayout.CENTER);
-
         setContentPane(pan);
         setVisible(true);
 
         imageLabel = new JLabel();
         imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-        souris = new Souris(this, true, false);
+        souris = new Souris(this, false, false);
         imageLabel.addMouseListener(souris);
-
-//        cs.startCalibration();
-//        try {
-//            // Attente que la calibration soit terminée
-//            calibrationLatch.await();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//        pan.remove(cs);
 
         pan.add(imageLabel, BorderLayout.CENTER);
 
@@ -113,7 +96,7 @@ public class Fenetre extends JFrame {
         imageLabel.setIcon(new ImageIcon(imgRedimensionnee));
     }
 
-    public void afficheScene(String nom) throws Error{  // sers à rien
+    public void afficheScene(String nom) throws Error{
         for (Scene s : scenes) {
             if (s.nom.equals(nom)) {
                 s.afficher();

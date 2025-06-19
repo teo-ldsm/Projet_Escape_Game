@@ -66,6 +66,10 @@ public class Objet {
             f.bandeau.setText("Vous avez ramassé " + nom + ". Cela pourra vous servir plus tard");
             collected = true;
             visible = false;
+            return;
+        }
+        if (collected) {
+            f.bandeau.setText("Vous avez déjà ramassé " + nom + ".");
         }
     }
 

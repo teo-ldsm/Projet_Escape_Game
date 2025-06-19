@@ -57,14 +57,6 @@ public class Souris extends MouseAdapter {
         int xClic = m.getX();
         int yClic = m.getY();
 
-//        System.out.println( "xBrut = " + xClic + " yBrut = " + yClic);
-
-        // Position et taille de l'image affichée
-//        int largeurImageAffichee = fenetre.imageLabel.getIcon().getIconWidth();
-//        int hauteurImageAffichee = fenetre.imageLabel.getIcon().getIconHeight();
-//
-//        int xImage = (fenetre.imageLabel.getWidth() - largeurImageAffichee) / 2 + offsetX;        // Remplacer pour faire correspondre les coordonées du 0, 0 (souvent 7)
-//        int yImage = (fenetre.imageLabel.getHeight() - hauteurImageAffichee) / 2 + offsetY;      // aux coin suppérieur gauche de l'image (souvent 30)
 
         // Vérifier si le clic est dans les limites de l'image
         int[] coordonneesNormalisees = normaliserCoordonees(xClic, yClic);

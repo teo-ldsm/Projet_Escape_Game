@@ -1,0 +1,26 @@
+Scénario : 
+
+Un homme dans la rue vous a proposé de monter dans sa camionnette blanche pour vous donner des bonbons. Il vous a kidnappé et drogué, vous vous dans cave sombre.
+
+[bureauSombre]: Vous devez trouver le tableau électrique pour allumer la lumière.
+
+[salleFlippante]: Il y a une lourde porte avec un digicode, des étagères avec des caisses, un bureau avec un ordinateur, un sac de sport, et des affiches aux murs. La salle sert de cellier a l'homme qui vous a capturé.
+
+[carnetTiroir]/[photoCarnet]: Dans le tiroir du bureau, il y a un carnet qui relate l'histoire de votre ravisseur et donne une énigme pour touver le code pour ouvrir la porte avec des éléments à chercher dans la pièce.
+
+Il faut trouver 4 choses :
+
+[sacTelephone]: Dans le sac de sport il y a un téléphone avec marqué 9 appels manqué.
+
+[Journal]: Sur le mur il y a un journal avec marqué que l'heure de l'accident est 4h
+
+[boitePhoto]: Dans une boite sur l'étage au dessus du bureau il y a une photo du réviseur avec sa compagne avec la date 02/07/1999
+
+[Mallette]: Et dans la mallette en hauteur il y a une clé USB que l'on doit mettre dans l'ordinateur
+
+[dossierMedical]: Une fois la clé usb collectée, l'ordinateur affiche un dossier médical avec le poids du patient (62kg).
+
+[digicode]: Les nombres mis à la suite selon l'énigme ouvre la porte. Le code est 29462 (2: jour écrit sur la photo,  9: nombre d'appels manqués sur le téléphone, 4: heure de l'accident marqué sur le journal au mur, 62: poids de la compagne défunte du ravisseur)
+
+PROMPT
+Ok, très bonne première partie. Prends garde toutefois à ne pas inventer. N'oublie pas de te baser sur le contenu des fichier java. La methode setMessage() de Bandeau.java ne s'apelle en réalité setText(). De même, il n'y a pas d'effet "machine a écrire" sur le bandeau. Prends bien garde ne pas inventer. N'hésite pas a relire chaque fichiers java en profondeur et a me demander si tu as le moindre doute.
